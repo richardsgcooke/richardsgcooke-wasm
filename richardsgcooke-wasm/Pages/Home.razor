@@ -15,7 +15,11 @@
     private List<ProjectItem> projectItems = new List<ProjectItem>();
     protected override void OnInitialized()
     {
-        // Populate the list with sample data
+        projectItems.Add(new ProjectItem
+        {
+            Title = "This Site",
+            Description = new MarkupString("<p>This site is built with Blazor WebAssembly. It's a single page application that runs in the browser. It's written in C# and Razor. It's hosted on Apache/Ubuntu. It's a static site. It's a progressive web app. It's a lot of things!</p> <a href='https://github.com/richardsgcooke/richardsgcooke-wasm'>Oh, this repo lives here</a>"),
+        });
         projectItems.Add(new ProjectItem
             {
                 Title = "About Me",
@@ -28,5 +32,17 @@
                     "My list of interests is varied and long. Life is just too short!",
                 }
             });        
+            projectItems.Add(new ProjectItem
+            {
+                Title = "my plan",
+                Description = new MarkupString("<p>This site is built with Blazor WebAssembly. It's a single page application that runs in the browser. It's written in C# and Razor. It's hosted on Apache/Ubuntu. It's a static site. It's a progressive web app. It's a lot of things!</p>"),
+                ListThings = new List<string>
+                {
+                    "I think that I will",
+                    "see about making up my own little blog platform here.",
+                    "should I make a /newpost/ page with a full gui? Do it in code like I am here?",
+                    
+                }
+            });
     }
 }
