@@ -1,0 +1,20 @@
+﻿@code {
+    [Parameter]
+    public ProjectItem Item { get; set; }
+}
+
+<div>
+    <h3>@Item.Title</h3>
+    <p>@Item.Description</p>
+    @if (Item.ListThings!=null)
+    {
+    <ul>
+        @foreach (var item in Item.ListThings)
+        {
+            <li>@item</li>
+        }
+    </ul>
+    }
+    
+    
+</div>

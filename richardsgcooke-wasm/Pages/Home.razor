@@ -1,0 +1,32 @@
+﻿@page "/"
+
+<PageTitle>Home of Richard SG Cooke</PageTitle>
+<h3>So the items below are a class, a razor component, and a loop on those.</h3>
+<p>Today I learned about Microsoft.AspNetCore.Components.MarkupString. I was trying to use html in a string but evidently theres a way for that. There are some double quotes to get around things. I think I can use single quotes inside the html and then just do double quotes for the c# stuff.</p>
+
+@foreach (var item in projectItems)
+{
+    <ProjectItemComponent Item="item" />
+}
+
+
+
+@code{
+    private List<ProjectItem> projectItems = new List<ProjectItem>();
+    protected override void OnInitialized()
+    {
+        // Populate the list with sample data
+        projectItems.Add(new ProjectItem
+            {
+                Title = "About Me",
+                Description = new MarkupString("<p>Hi! I'm a software developer, Dad, Husband, Son, Neighbor, Musician, Joker from Ottawa. I'm passionate about coding and technology but music is probably my greatest passion.</p>"),
+                ListThings = new List<string>
+                {
+                    "Learning technologies. Especially in software but I am conversant in other areas like EE or whatever.",
+                    "Writing music",
+                    "Building and fixing things! Why buy when you can build?! I keep our washers and furnaces all in good repair. I've built entire bikes, speakers, a few electric guitars, shelves, odds and ends.",
+                    "My list of interests is varied and long. Life is just too short!",
+                }
+            });        
+    }
+}
